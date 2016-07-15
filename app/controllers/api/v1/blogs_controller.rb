@@ -30,7 +30,7 @@ class Api::V1::BlogsController < Api::V1::BaseController
 
   def destroy
     @blog.destroy
-    format.json { head :no_content }
+    render nothing: true, status: :no_content
   end
 
   private
