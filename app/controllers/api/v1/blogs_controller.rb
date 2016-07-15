@@ -14,9 +14,9 @@ class Api::V1::BlogsController < Api::V1::BaseController
     @blog = Blog.new(blog_params)
 
     if @blog.save
-      format.json { render :show, status: :created, location: @blog }
+      render json: @blog, status: :created, location: @blog
     else
-      format.json { render json: @blog.errors, status: :unprocessable_entity }
+      render json: @blog.errors, status: :unprocessable_entity
     end
   end
 
