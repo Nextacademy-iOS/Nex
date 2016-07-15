@@ -22,9 +22,9 @@ class Api::V1::BlogsController < Api::V1::BaseController
 
   def update
     if @blog.update(blog_params)
-      format.json { render :show, status: :ok, location: @blog }
+      render json: @blog, status: :ok, location: @blog
     else      
-      format.json { render json: @blog.errors, status: :unprocessable_entity }
+      render json: @blog.errors, status: :unprocessable_entity
     end
   end
 
