@@ -2,7 +2,7 @@ class Api::V1::BlogsController < Api::V1::BaseController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
 
   def index
-    @blogs = Blog.all
+    @blogs = Blog.all.reverse
     render json: @blogs
   end
 
