@@ -10,5 +10,11 @@
   <%= @blog.body %>
 </p>
 
+    <% @blog.comments.each_with_index do |comment, index| %>
+    <p>
+      <%= "#{index + 1}. #{comment.body} by #{comment.author}" %>
+      </p>
+    <% end %>
+
 <%= link_to 'Edit', edit_blog_path(@blog) %> |
 <%= link_to 'Back', blogs_path %>
